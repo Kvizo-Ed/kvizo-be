@@ -1,24 +1,8 @@
-# README
+# Kvizo Backend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Schema
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<img width="1091" alt="Kvizo Schema" src="https://user-images.githubusercontent.com/77140183/152253836-d26d8206-acfb-494e-bb74-9750acd042a9.png">
