@@ -1,0 +1,17 @@
+current directory: /Users/lesleysanders/turing/4module/consultancy/kvizo-be/vendor/bundle/ruby/2.7.0/gems/racc-1.6.0/ext/racc/cparse
+/Users/lesleysanders/.rvm/rubies/ruby-2.7.2/bin/ruby -I /Users/lesleysanders/.rvm/rubies/ruby-2.7.2/lib/ruby/2.7.0 -r ./siteconf20220204-18172-1gx2p2l.rb extconf.rb
+checking for rb_block_call()... yes
+checking for rb_ary_subseq()... yes
+creating Makefile
+
+current directory: /Users/lesleysanders/turing/4module/consultancy/kvizo-be/vendor/bundle/ruby/2.7.0/gems/racc-1.6.0/ext/racc/cparse
+make "DESTDIR=" clean
+
+current directory: /Users/lesleysanders/turing/4module/consultancy/kvizo-be/vendor/bundle/ruby/2.7.0/gems/racc-1.6.0/ext/racc/cparse
+make "DESTDIR="
+compiling cparse.c
+linking shared-object racc/cparse.bundle
+
+current directory: /Users/lesleysanders/turing/4module/consultancy/kvizo-be/vendor/bundle/ruby/2.7.0/gems/racc-1.6.0/ext/racc/cparse
+make "DESTDIR=" install
+/usr/local/opt/coreutils/bin/ginstall -c -m 0755 cparse.bundle ./.gem.20220204-18172-90blrt/racc
