@@ -83,7 +83,7 @@ STATUS: 200
 (param is :id of multiple choice quiz the user selected)
 ```
 STATUS: 200
-{"multi": [
+{"quiz": [
 {
   id: '1',
   user_id: '1' (always 1 for now)
