@@ -11,7 +11,7 @@ STATUS: 200
 {
      id: '1',
 user_id: '1' (always 1 for now),
-   type: 'multis',
+   type: 'multi',
 subject: 'Math',
   topic: 'division',
   title: 'Division II',
