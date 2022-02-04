@@ -13,8 +13,8 @@ STATUS: 200
    type: 'multis',
 subject: 'Math',
   topic: 'division',
-  grade: '4',
-  title: 'Division II'
+  title: 'Division II',
+  grade: '4'
 }, 
 {...}
 ]
@@ -27,6 +27,7 @@ subject: 'Math',
 {
   subject: 'Math',
   topic: 'division',
+  title: 'Division II',
   grade: '4',
   questions: [
       {
