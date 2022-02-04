@@ -1,16 +1,6 @@
 # Endpoints
 
-
-POST multis
-GET quizzes
-GET multis
-
-
-
 ## Quiz
-- POST /api/v1/quizzes
-- GET /api/v1/quizzes
-
 #### `POST /api/v1/multis`
 ##### Required Body Content:
 
@@ -85,7 +75,7 @@ subject: 'Math',
 
 #### `GET /api/v1/multis/:id`
 #### RESPONSE
-:id param of multiple choice quiz the user selected
+(param is :id of multiple choice quiz the user selected)
 ```
 STATUS: 200
 {"multi": [
