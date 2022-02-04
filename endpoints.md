@@ -35,7 +35,7 @@ subject: 'Math',
       {
         questionText: 'what is 8 / 4',
         correctAnswer: '2',
-        options: [
+        possibleAnswers: [
           '4',
           '6',
           '2',
@@ -45,7 +45,7 @@ subject: 'Math',
       {
         questionText: 'what is 6 / 2',
         correctAnswer: '3',
-        options: [
+        possibleAnswers: [
           '12',
           '22',
           '2',
@@ -55,7 +55,7 @@ subject: 'Math',
       {
         questionText: 'what is 20 / 4',
         correctAnswer: '5',
-        options: [
+        possibleAnswers: [
           '4',
           '5',
           '10',
