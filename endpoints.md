@@ -10,6 +10,7 @@ STATUS: 200
 {"quizzes": [
 {
      id: '1',
+user_id: '1' (always 1 for now),
    type: 'multis',
 subject: 'Math',
   topic: 'division',
@@ -29,6 +30,7 @@ subject: 'Math',
   topic: 'division',
   title: 'Division II',
   grade: '4',
+  user_id: '1' (always 1 for now),
   questions: [
       {
         questionText: 'what is 8 / 4',
@@ -84,11 +86,12 @@ STATUS: 200
 {"multi": [
 {
   id: '1',
+  user_id: '1' (always 1 for now)
   type: 'multi',
   subject: 'Math',
   topic: 'division',
   title: 'Division II',
-  grade: '4';
+  grade: '4',
   questions: [
       {
         questionText: 'what is 8 / 4',
