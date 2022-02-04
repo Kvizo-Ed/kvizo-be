@@ -21,7 +21,7 @@ subject: 'Math',
 ]
 ```
 
-#### `POST /api/v1/multis`
+#### `POST /api/v1/quizzes`
 ##### Required Body Content:
 
 ```
@@ -78,7 +78,7 @@ STATUS: 200
 }
 ```
 
-#### `GET /api/v1/multis/:id`
+#### `GET /api/v1/quizzes/:id`
 #### RESPONSE
 (param is :id of multiple choice quiz the user selected)
 ```
@@ -96,7 +96,7 @@ STATUS: 200
       {
         questionText: 'what is 8 / 4',
         correctAnswer: '2',
-        options: [
+        possibleAnswers: [
           '4',
           '6',
           '2',
@@ -106,7 +106,7 @@ STATUS: 200
       {
         questionText: 'what is 6 / 2',
         correctAnswer: '3',
-        options: [
+        possibleAnswers: [
           '12',
           '22',
           '2',
@@ -116,7 +116,7 @@ STATUS: 200
       {
         questionText: 'what is 20 / 4',
         correctAnswer: '5',
-        options: [
+        possibleAnswers: [
           '4',
           '5',
           '10',
