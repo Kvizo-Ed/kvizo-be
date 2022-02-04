@@ -1,6 +1,25 @@
 # Endpoints
 
 ## Quiz
+
+#### `GET /api/v1/quizzes`
+#### RESPONSE
+
+```
+STATUS: 200
+{"quizzes": [
+{
+     id: '1',
+   type: 'multis',
+subject: 'Math',
+  topic: 'division',
+  grade: '4',
+  title: 'Division II'
+}, 
+{...}
+]
+```
+
 #### `POST /api/v1/multis`
 ##### Required Body Content:
 
@@ -54,23 +73,6 @@ STATUS: 200
     message: 'Quiz has been created!'
   }
 }
-```
-#### `GET /api/v1/quizzes`
-#### RESPONSE
-
-```
-STATUS: 200
-{"quizzes": [
-{
-     id: '1',
-   type: 'multis',
-subject: 'Math',
-  topic: 'division',
-  grade: '4',
-  title: 'Division II'
-}, 
-{...}
-]
 ```
 
 #### `GET /api/v1/multis/:id`
