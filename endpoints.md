@@ -55,6 +55,9 @@ STATUS: 201
 ```
 
 #### `PATCH /api/v1/quizzes/:quiz_id` (:quiz id is 96 in this case)
+
+Currently used to add questions to quiz. 
+
 ##### Required Body Content:
 
 ```
