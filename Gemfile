@@ -33,6 +33,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry'
   gem 'rspec-rails'
+  gem 'factory_bot_rails', '~> 4.0'
 end
 
 group :development do
@@ -43,7 +44,6 @@ group :development do
 end
 
 group :test do
-  gem 'factory_bot_rails', '~> 4.0'
   gem 'faker'
   gem 'shoulda-matchers', '~> 3.1'
   gem 'simplecov', require: false
