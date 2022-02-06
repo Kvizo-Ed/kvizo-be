@@ -65,6 +65,8 @@ GEM
       activesupport (>= 5.0)
     i18n (1.9.1)
       concurrent-ruby (~> 1.0)
+    jsonapi-serializer (2.2.0)
+      activesupport (>= 4.2)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -136,6 +138,8 @@ GEM
       rspec-mocks (~> 3.10)
       rspec-support (~> 3.10)
     rspec-support (3.10.3)
+    rspec_junit_formatter (0.5.1)
+      rspec-core (>= 2, < 4, != 2.12.0)
     ruby_dep (1.5.0)
     shoulda-matchers (3.1.3)
       activesupport (>= 4.0.0)
@@ -172,12 +176,14 @@ DEPENDENCIES
   byebug
   factory_bot_rails (~> 4.0)
   faker
+  jsonapi-serializer
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
   pry
   puma (~> 3.11)
   rails (~> 5.2.6)
   rspec-rails
+  rspec_junit_formatter
   shoulda-matchers (~> 3.1)
   simplecov
   spring
