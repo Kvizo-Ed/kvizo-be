@@ -57,7 +57,6 @@ describe 'Quizzes API' do
 
     expect(quiz).to have_key(:data)
     expect(quiz[:data]).to have_key(:id)
-    # expect(quiz[:data][:attributes][:message]).to eq('Quiz has been created!')
     expect(quiz[:data][:attributes][:subject]).to eq('Economics')
     expect(quiz[:data][:attributes][:topic]).to eq('Supply and Demand')
     expect(quiz[:data][:attributes][:title]).to eq('Prices Quiz II')
