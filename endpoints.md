@@ -26,58 +26,81 @@ subject: 'Math',
 
 ```
 {
-  subject: 'Math',
-  topic: 'division',
-  title: 'Division II',
-  grade: '4',
+  subject: 'Economics',
+  topic: 'Supply and Demand',
+  title: 'Prices Quiz II',
+  grade: '12',
   user_id: '1' (always 1 for now),
-  questions: [
-      {
-        questionText: 'what is 8 / 4',
-        questionType: 'multi',
-        correctAnswer: '2',
-        possibleAnswers: [
-          '4',
-          '6',
-          '2',
-          '11'
-        ]
-      },
-      {
-        questionText: 'what is 6 / 2',
-        questionType: 'multi',
-        correctAnswer: '3',
-        possibleAnswers: [
-          '12',
-          '22',
-          '2',
-          '3'
-        ]
-      },
-      {
-        questionText: 'what is 20 / 4',
-        correctAnswer: '5',
-        possibleAnswers: [
-          '4',
-          '5',
-          '10',
-          '6'
-        ]
-      }
-  ]
 }
 ```
 
 #### RESPONSE
 
 ```
-STATUS: 200
-{ data:
-  { 
-    id: 1,
-    message: 'Quiz has been created!'
-  }
+STATUS: 201
+{
+  data: {
+  id: "96",
+  type: "quiz",
+  attributes: {
+     subject: "Economics",
+     topic: "Supply and Demand",
+     title: "Prices Quiz II",
+     grade: 12,
+     user_id: 1,
+     questions: []
+              }
+        }
 }
+```
+
+#### `PATCH /api/v1/quizzes/:quiz_id` (:quiz id is 96 in this case)
+##### Required Body Content:
+
+```
+{ questions: 
+        [
+      {
+        'questionText': 'what is 8 / 4',
+        'questionType': 'multi',
+        'correctAnswer': '2',
+        'possibleAnswers': [
+          '4',
+          '6',
+          '2',
+          '11'
+                           ]
+      },
+      {
+        'questionText': 'Demand never causes inflation',
+        'questionType': 'TF',
+        'correctAnswer': 'False',
+        'possibleAnswers': [
+          'True',
+          'False'
+                           ]
+      }
+      ]
+     
+    }
+```
+
+#### RESPONSE
+
+```
+STATUS: 200
+{data: 
+  {id: "99",
+   type: "quiz",
+   attributes: {
+     subject: "Economics",
+     topic: "Supply and Demand",
+     title: "Prices Quiz II",
+     grade: 12,
+     user_id: 1,
+     questions: 
+      [{questionText: "what is 8 / 4", questionType: "multi", correctAnswer: "2", possibleAnswers: ["4", "6", "2", "11"]},
+       {questionText: "Demand never causes inflation", questionType: "TF", correctAnswer: "False", possibleAnswers: ['True', 'False']}]}}}
 ```
 
 #### `GET /api/v1/quizzes/:id`
