@@ -92,7 +92,8 @@ Currently used to add questions to quiz.
 
 ```
 STATUS: 200
-{data: 
+{
+data: 
   {id: "99",
    type: "quiz",
    attributes: {
@@ -102,8 +103,13 @@ STATUS: 200
      grade: 12,
      user_id: 1,
      questions: 
-      [{questionText: "what is 8 / 4", questionType: "multi", correctAnswer: "2", possibleAnswers: ["4", "6", "2", "11"]},
-       {questionText: "Demand never causes inflation", questionType: "TF", correctAnswer: "False", possibleAnswers: ['True', 'False']}]}}}
+      [
+      {questionText: "what is 8 / 4", questionType: "multi", correctAnswer: "2", possibleAnswers: ["4", "6", "2", "11"]},
+       {questionText: "Demand never causes inflation", questionType: "TF", correctAnswer: "False", possibleAnswers: ['True', 'False']}
+      ]
+               }
+  }
+}
 ```
 
 #### `GET /api/v1/quizzes/:id`
