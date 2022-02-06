@@ -5,11 +5,7 @@ class QuizSerializer
              :title,
              :grade,
              :user_id
-
-  # attribute :message do |object|
-  #   'Quiz has been created!'
-  # end
-
+             
   attribute :questions do |quiz|
     quiz.questions.map do |question|
       {
