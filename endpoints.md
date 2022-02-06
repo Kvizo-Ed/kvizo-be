@@ -34,6 +34,7 @@ subject: 'Math',
   questions: [
       {
         questionText: 'what is 8 / 4',
+        questionType: 'multi',
         correctAnswer: '2',
         possibleAnswers: [
           '4',
@@ -44,6 +45,7 @@ subject: 'Math',
       },
       {
         questionText: 'what is 6 / 2',
+        questionType: 'multi',
         correctAnswer: '3',
         possibleAnswers: [
           '12',
