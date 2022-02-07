@@ -1,4 +1,8 @@
 class Api::V1::QuizzesController < ApplicationController
+  def index
+    render json: QuizSerializer.new(Quiz.all), status: 201
+  end
+
   def create
     user = User.find(params[:user_id])
     quiz = user.quizzes.create!(quiz_params)
