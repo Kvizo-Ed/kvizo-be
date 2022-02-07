@@ -13,7 +13,7 @@ describe 'Quizzes API' do
   end
 
   let(:question_params) do
-      { questions: 
+      { questions:
         [
       {
         'questionText': 'what is 8 / 4',
@@ -38,7 +38,7 @@ describe 'Quizzes API' do
                            ]
       }
       ]
-     
+
     }
   end
   let(:headers) do
@@ -50,7 +50,7 @@ describe 'Quizzes API' do
 
   it 'lets the frontend create a multiple choice quiz without questions' do
     post '/api/v1/quizzes', headers: headers, params: quiz_params.to_json
-    
+
     expect(response.status).to eq(201)
 
     quiz = JSON.parse(response.body, symbolize_names: true)
@@ -83,5 +83,65 @@ describe 'Quizzes API' do
     expect(quiz_with_questions[:data][:attributes][:questions][0]).to have_key(:possibleAnswers)
     expect(quiz_with_questions[:data][:attributes][:questions][0][:possibleAnswers]).to be_an Array
     expect(quiz_with_questions[:data][:attributes][:questions][0][:possibleAnswers].first).to be_a String
+  end
+
+  it 'gets all quizzes' do
+    create_list(:quiz, 10)
+
+    get "/api/v1/quizzes/"
+
+    expect(response.status).to eq(200)
+
+    quizzes = JSON.parse(response.body, symbolize_names: true)
+
+    expect(quizzes[:data].count).to eq(10)
+
+    quizzes[:data].each do |quiz|
+      expect(quiz[:attributes]).to have_key(:subject)
+      expect(quiz[:attributes][:subject]).to be_a(String)
+      expect(quiz[:attributes]).to have_key(:topic)
+      expect(quiz[:attributes][:topic]).to be_a(String)
+      expect(quiz[:attributes]).to have_key(:title)
+      expect(quiz[:attributes][:title]).to be_a(String)
+      expect(quiz[:attributes]).to have_key(:grade)
+      expect(quiz[:attributes][:grade]).to be_an(Integer)
+      expect(quiz[:attributes]).to have_key(:user_id)
+      expect(quiz[:attributes][:user_id]).to be_an(Integer)
+      expect(quiz[:attributes]).to have_key(:questions)
+    end
+  end
+
+  it 'gets one quiz' do
+    quiz_1 = create(:quiz)
+
+    get "/api/v1/quizzes/#{quiz_1.id}"
+
+    expect(response.status).to eq(200)
+
+
+    quiz = JSON.parse(response.body, symbolize_names: true)
+
+    expect(quiz[:data]).to have_key(:type)
+    expect(quiz[:data]).to have_key(:attributes)
+    expect(quiz[:data][:attributes]).to have_key(:subject)
+    expect(quiz[:data][:attributes][:subject]).to be_a(String)
+    expect(quiz[:data][:attributes]).to have_key(:topic)
+    expect(quiz[:data][:attributes][:topic]).to be_a(String)
+    expect(quiz[:data][:attributes]).to have_key(:title)
+    expect(quiz[:data][:attributes][:title]).to be_a(String)
+    expect(quiz[:data][:attributes]).to have_key(:grade)
+    expect(quiz[:data][:attributes][:grade]).to be_an(Integer)
+    expect(quiz[:data][:attributes]).to have_key(:user_id)
+    expect(quiz[:data][:attributes][:user_id]).to be_an(Integer)
+    expect(quiz[:data][:attributes]).to have_key(:questions)
+  end
+
+  it 'sends an error code if quiz does not exist' do
+    get "/api/v1/quizzes/10000"
+
+    error = (JSON.parse(response.body, symbolize_names: true))[:errors][:details]
+
+    expect(response.status).to eq(404)
+    expect(error).to eq("This quiz does not exist.")
   end
 end
