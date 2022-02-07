@@ -97,5 +97,43 @@ describe 'Quizzes API' do
 
     expect(quizzes[:data].count).to eq(10)
 
+    quizzes[:data].each do |quiz|
+      expect(quiz[:attributes]).to have_key(:subject)
+      expect(quiz[:attributes][:subject]).to be_a(String)
+      expect(quiz[:attributes]).to have_key(:topic)
+      expect(quiz[:attributes][:topic]).to be_a(String)
+      expect(quiz[:attributes]).to have_key(:title)
+      expect(quiz[:attributes][:title]).to be_a(String)
+      expect(quiz[:attributes]).to have_key(:grade)
+      expect(quiz[:attributes][:grade]).to be_an(Integer)
+      expect(quiz[:attributes]).to have_key(:user_id)
+      expect(quiz[:attributes][:user_id]).to be_an(Integer)
+      expect(quiz[:attributes]).to have_key(:questions)
+    end
+  end
+
+  it 'gets one quiz' do
+    quiz_1 = create(:quiz)
+    quiz_2 = create(:quiz)
+
+    get "/api/v1/quizzes/#{quiz_1.id}"
+
+    expect(response).to be_successful
+
+    quiz = JSON.parse(response.body, symbolize_names: true)
+
+    expect(quiz[:data]).to have_key(:type)
+    expect(quiz[:data]).to have_key(:attributes)
+    expect(quiz[:data][:attributes]).to have_key(:subject)
+    expect(quiz[:data][:attributes][:subject]).to be_a(String)
+    expect(quiz[:data][:attributes]).to have_key(:topic)
+    expect(quiz[:data][:attributes][:topic]).to be_a(String)
+    expect(quiz[:data][:attributes]).to have_key(:title)
+    expect(quiz[:data][:attributes][:title]).to be_a(String)
+    expect(quiz[:data][:attributes]).to have_key(:grade)
+    expect(quiz[:data][:attributes][:grade]).to be_an(Integer)
+    expect(quiz[:data][:attributes]).to have_key(:user_id)
+    expect(quiz[:data][:attributes][:user_id]).to be_an(Integer)
+    expect(quiz[:data][:attributes]).to have_key(:questions)
   end
 end
