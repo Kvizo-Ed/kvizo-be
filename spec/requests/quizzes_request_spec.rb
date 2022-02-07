@@ -4,11 +4,11 @@ describe 'Quizzes API' do
   let(:user) { create(:user)}
   let(:quiz_params) do
     {
-      'subject': 'Economics',
-      'topic': 'Supply and Demand',
-      'title': 'Prices Quiz II',
-      'grade': '12',
-      'user_id': user.id.to_s
+      "subject": "Economics",
+      "topic": "Supply and Demand",
+      "title": "Prices Quiz II",
+      "grade": "12",
+      "user_id": user.id.to_s
     }
   end
 
@@ -16,7 +16,7 @@ describe 'Quizzes API' do
       { questions:
         [
       {
-        'questionText': 'what is 8 / 4',
+        "questionText": 'what is 8 / 4',
         'questionType': 'multi',
         'correctAnswer': '2',
         'possibleAnswers': [
