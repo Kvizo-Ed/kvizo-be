@@ -13,7 +13,7 @@ describe 'Quizzes API' do
   end
 
   let(:question_params) do
-      { questions: 
+      { questions:
         [
       {
         'questionText': 'what is 8 / 4',
@@ -38,7 +38,7 @@ describe 'Quizzes API' do
                            ]
       }
       ]
-     
+
     }
   end
   let(:headers) do
@@ -50,7 +50,7 @@ describe 'Quizzes API' do
 
   it 'lets the frontend create a multiple choice quiz without questions' do
     post '/api/v1/quizzes', headers: headers, params: quiz_params.to_json
-    
+
     expect(response.status).to eq(201)
 
     quiz = JSON.parse(response.body, symbolize_names: true)
@@ -83,5 +83,19 @@ describe 'Quizzes API' do
     expect(quiz_with_questions[:data][:attributes][:questions][0]).to have_key(:possibleAnswers)
     expect(quiz_with_questions[:data][:attributes][:questions][0][:possibleAnswers]).to be_an Array
     expect(quiz_with_questions[:data][:attributes][:questions][0][:possibleAnswers].first).to be_a String
+  end
+
+  it 'gets all quizzes' do
+    create_list(:quiz, 10)
+
+    get "/api/v1/quizzes/"
+
+    expect(response).to be_successful
+    expect(response.status).to eq(201)
+
+    quizzes = JSON.parse(response.body, symbolize_names: true)
+
+    expect(quizzes[:data].count).to eq(10)
+
   end
 end
