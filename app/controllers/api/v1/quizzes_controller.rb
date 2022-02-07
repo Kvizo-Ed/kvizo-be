@@ -1,11 +1,11 @@
 class Api::V1::QuizzesController < ApplicationController
   def index
-    render json: QuizSerializer.new(Quiz.all), status: 201
+    render json: QuizSerializer.new(Quiz.all), status: 200
   end
 
   def show
     if Quiz.exists?(params[:id])
-      render json: QuizSerializer.new(Quiz.find(params[:id])), status: 201
+      render json: QuizSerializer.new(Quiz.find(params[:id])), status: 200
     else
       render json: {errors: {details: "This quiz does not exist."}}, status: 404
     end
