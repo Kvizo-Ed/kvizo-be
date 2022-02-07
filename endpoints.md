@@ -26,11 +26,11 @@ subject: 'Math',
 
 ```
 {
-  subject: 'Economics',
-  topic: 'Supply and Demand',
-  title: 'Prices Quiz II',
-  grade: '12',
-  user_id: '1' (always 1 for now),
+  "subject": "Economics",
+  "topic": "Supply and Demand",
+  "title": "Prices Quiz II",
+  "grade": "12",
+  "user_id": "1" (always 1 for now),
 }
 ```
 
@@ -64,23 +64,23 @@ Currently used to add questions to quiz.
 { questions: 
         [
       {
-        'questionText': 'what is 8 / 4',
-        'questionType': 'multi',
-        'correctAnswer': '2',
-        'possibleAnswers': [
-          '4',
-          '6',
-          '2',
-          '11'
+        "questionText": "what is 8 / 4",
+        "questionType": "multi",
+        "correctAnswer": "2",
+        "possibleAnswers": [
+          "4",
+          "6",
+          "2",
+          "11"
                            ]
       },
       {
-        'questionText': 'Demand never causes inflation',
-        'questionType': 'TF',
-        'correctAnswer': 'False',
-        'possibleAnswers': [
-          'True',
-          'False'
+        "questionText": "Demand never causes inflation",
+        "questionType": "TF",
+        "correctAnswer": "False",
+        "possibleAnswers": [
+          "True",
+          "False"
                            ]
       }
       ]
