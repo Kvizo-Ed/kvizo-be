@@ -90,8 +90,7 @@ describe 'Quizzes API' do
 
     get "/api/v1/quizzes/"
 
-    expect(response).to be_successful
-    expect(response.status).to eq(201)
+    expect(response.status).to eq(200)
 
     quizzes = JSON.parse(response.body, symbolize_names: true)
 
@@ -117,7 +116,8 @@ describe 'Quizzes API' do
 
     get "/api/v1/quizzes/#{quiz_1.id}"
 
-    expect(response).to be_successful
+    expect(response.status).to eq(200)
+
 
     quiz = JSON.parse(response.body, symbolize_names: true)
 
