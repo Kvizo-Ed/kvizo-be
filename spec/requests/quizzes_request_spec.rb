@@ -114,7 +114,6 @@ describe 'Quizzes API' do
 
   it 'gets one quiz' do
     quiz_1 = create(:quiz)
-    quiz_2 = create(:quiz)
 
     get "/api/v1/quizzes/#{quiz_1.id}"
 
@@ -135,5 +134,14 @@ describe 'Quizzes API' do
     expect(quiz[:data][:attributes]).to have_key(:user_id)
     expect(quiz[:data][:attributes][:user_id]).to be_an(Integer)
     expect(quiz[:data][:attributes]).to have_key(:questions)
+  end
+
+  it 'sends an error code if quiz does not exist' do
+    get "/api/v1/quizzes/10000"
+
+    error = (JSON.parse(response.body, symbolize_names: true))[:errors][:details]
+
+    expect(response.status).to eq(404)
+    expect(error).to eq("This quiz does not exist.")
   end
 end
