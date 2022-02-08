@@ -4,8 +4,9 @@ class QuizSerializer
              :topic,
              :title,
              :grade,
-             :user_id
-             
+             :user_id,
+             :quiz_type
+
   attribute :questions do |quiz|
     quiz.questions.map do |question|
       {
