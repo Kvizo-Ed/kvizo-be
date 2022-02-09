@@ -8,34 +8,34 @@
 ```
 STATUS: 200
 {
-"data": [
-{
-"id": "21",
-"type": "quiz",
-"attributes": {
-"subject": "Economics",
-"topic": "Supply and Demand",
-"title": "Prices Quiz II",
-"grade": 12,
-"user_id": 1,
-"quiz_type": "multi",
-"questions": []
-}
-},
-{
-"id": "22",
-"type": "quiz",
-"attributes": {
-"subject": "Economics",
-"topic": "Supply and Demand",
-"title": "Prices Quiz II",
-"grade": 12,
-"user_id": 1,
-"quiz_type": "multi",
-"questions": []
-}
-}
-]
+  "data": [
+    {
+      "id": "21",
+      "type": "quiz",
+      "attributes": {
+        "subject": "Economics",
+        "topic": "Supply and Demand",
+        "title": "Prices Quiz II",
+        "grade": 12,
+        "user_id": 1,
+        "quiz_type": "multi",
+        "questions": []
+      }
+    },
+    {
+      "id": "22",
+      "type": "quiz",
+      "attributes": {
+        "subject": "Economics",
+        "topic": "Supply and Demand",
+        "title": "Prices Quiz II",
+        "grade": 12,
+        "user_id": 1,
+        "quiz_type": "multi",
+        "questions": []
+      }
+    }
+  ]
 }
 ```
 
