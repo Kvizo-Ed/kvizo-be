@@ -1,11 +1,10 @@
-# frozen_string_literal: true
 
 module ExceptionHandler
   extend ActiveSupport::Concern
 
   included do
-    rescue_from ActiveRecord::RecordNotFound do |_e|
-      render json: invalid_credentials, status: 401
+    rescue_from ActiveRecord::RecordNotFound do |e|
+      render json: { message: e.message }, status: 404
     end
 
     rescue_from ActiveRecord::RecordInvalid do |e|
