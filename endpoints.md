@@ -7,18 +7,36 @@
 
 ```
 STATUS: 200
-{"quizzes": [
 {
-     id: '1',
-user_id: '1' (always 1 for now),
-   type: 'multi',
-subject: 'Math',
-  topic: 'division',
-  title: 'Division II',
-  grade: '4'
-}, 
-{...}
+"data": [
+{
+"id": "21",
+"type": "quiz",
+"attributes": {
+"subject": "Economics",
+"topic": "Supply and Demand",
+"title": "Prices Quiz II",
+"grade": 12,
+"user_id": 1,
+"quiz_type": "multi",
+"questions": []
+}
+},
+{
+"id": "22",
+"type": "quiz",
+"attributes": {
+"subject": "Economics",
+"topic": "Supply and Demand",
+"title": "Prices Quiz II",
+"grade": 12,
+"user_id": 1,
+"quiz_type": "multi",
+"questions": []
+}
+}
 ]
+}
 ```
 
 #### `POST /api/v1/quizzes`
