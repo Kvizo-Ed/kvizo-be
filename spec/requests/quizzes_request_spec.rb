@@ -7,6 +7,7 @@ describe 'Quizzes API' do
       "subject": "Economics",
       "topic": "Supply and Demand",
       "title": "Prices Quiz II",
+      "quiz_type": "multi",
       "grade": "12",
       "user_id": user.id.to_s
     }
@@ -159,6 +160,8 @@ describe 'Quizzes API' do
     expect(quiz[:data][:attributes][:topic]).to be_a(String)
     expect(quiz[:data][:attributes]).to have_key(:title)
     expect(quiz[:data][:attributes][:title]).to be_a(String)
+    expect(quiz[:data][:attributes]).to have_key(:quiz_type)
+    expect(quiz[:data][:attributes][:quiz_type]).to be_a(String)
     expect(quiz[:data][:attributes]).to have_key(:grade)
     expect(quiz[:data][:attributes][:grade]).to be_an(Integer)
     expect(quiz[:data][:attributes]).to have_key(:user_id)

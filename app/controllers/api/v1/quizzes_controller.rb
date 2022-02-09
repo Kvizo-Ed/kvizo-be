@@ -12,6 +12,7 @@ class Api::V1::QuizzesController < ApplicationController
 
   def create
     user = User.find(params[:user_id])
+
     quiz = user.quizzes.create!(quiz_params)
     
     render json: QuizSerializer.new(quiz), status: 201
@@ -40,6 +41,6 @@ class Api::V1::QuizzesController < ApplicationController
 private
 
     def quiz_params
-      params.permit(:subject, :topic, :title, :grade, :user_id)
+      params.permit(:subject, :topic, :title, :grade, :user_id, :quiz_type)
     end
 end
