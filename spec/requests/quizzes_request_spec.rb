@@ -47,44 +47,74 @@ describe 'Quizzes API' do
       'Accept' => 'application/json'
     }
   end
+  context 'happy path' do
+    it 'lets the frontend create a multiple choice quiz without questions' do
+      post '/api/v1/quizzes', headers: headers, params: quiz_params.to_json
 
-  it 'lets the frontend create a multiple choice quiz without questions' do
-    post '/api/v1/quizzes', headers: headers, params: quiz_params.to_json
+      expect(response.status).to eq(201)
 
-    expect(response.status).to eq(201)
+      quiz = JSON.parse(response.body, symbolize_names: true)
 
-    quiz = JSON.parse(response.body, symbolize_names: true)
+      expect(quiz).to have_key(:data)
+      expect(quiz[:data]).to have_key(:id)
+      expect(quiz[:data][:attributes][:subject]).to eq('Economics')
+      expect(quiz[:data][:attributes][:topic]).to eq('Supply and Demand')
+      expect(quiz[:data][:attributes][:title]).to eq('Prices Quiz II')
+      expect(quiz[:data][:attributes][:grade]).to eq(12)
+      expect(quiz[:data][:attributes][:user_id]).to eq(user.id)
+    end
+  end
+  context 'sad path' do
+    it 'errors out if the post request is missing a user' do
+      quiz_params.delete(:user_id)
 
-    expect(quiz).to have_key(:data)
-    expect(quiz[:data]).to have_key(:id)
-    expect(quiz[:data][:attributes][:subject]).to eq('Economics')
-    expect(quiz[:data][:attributes][:topic]).to eq('Supply and Demand')
-    expect(quiz[:data][:attributes][:title]).to eq('Prices Quiz II')
-    expect(quiz[:data][:attributes][:grade]).to eq(12)
-    expect(quiz[:data][:attributes][:user_id]).to eq(user.id)
+      post '/api/v1/quizzes', headers: headers, params: quiz_params.to_json
+      
+      expect(response.status).to eq(404)
+
+      error = JSON.parse(response.body, symbolize_names: true)
+      
+      expect(error[:message]).to eq("Couldn't find User without an ID")
+    end
   end
 
-  it 'lets the frontend add questions after the creation of a quiz' do
-    quiz = create(:quiz)
+    context 'happy path' do
+      it 'lets the frontend add questions after the creation of a quiz' do
+        quiz = create(:quiz)
 
-    patch "/api/v1/quizzes/#{quiz.id}", headers: headers, params: question_params.to_json
+        patch "/api/v1/quizzes/#{quiz.id}", headers: headers, params: question_params.to_json
 
-    expect(response.status).to eq(201)
+        expect(response.status).to eq(201)
 
-    quiz_with_questions = JSON.parse(response.body, symbolize_names: true)
+        quiz_with_questions = JSON.parse(response.body, symbolize_names: true)
 
-    expect(quiz_with_questions).to have_key(:data)
-    expect(quiz_with_questions[:data]).to have_key(:id)
-    expect(quiz_with_questions[:data][:id]).to be_a String
-    expect(quiz_with_questions[:data]).to have_key(:attributes)
-    expect(quiz_with_questions[:data][:attributes]).to have_key(:questions)
-    expect(quiz_with_questions[:data][:attributes][:questions]).to be_an Array
-    expect(quiz_with_questions[:data][:attributes][:questions]).not_to be_empty
-    expect(quiz_with_questions[:data][:attributes][:questions][0]).to have_key(:possibleAnswers)
-    expect(quiz_with_questions[:data][:attributes][:questions][0][:possibleAnswers]).to be_an Array
-    expect(quiz_with_questions[:data][:attributes][:questions][0][:possibleAnswers].first).to be_a String
-  end
+        expect(quiz_with_questions).to have_key(:data)
+        expect(quiz_with_questions[:data]).to have_key(:id)
+        expect(quiz_with_questions[:data][:id]).to be_a String
+        expect(quiz_with_questions[:data]).to have_key(:attributes)
+        expect(quiz_with_questions[:data][:attributes]).to have_key(:questions)
+        expect(quiz_with_questions[:data][:attributes][:questions]).to be_an Array
+        expect(quiz_with_questions[:data][:attributes][:questions]).not_to be_empty
+        expect(quiz_with_questions[:data][:attributes][:questions][0]).to have_key(:possibleAnswers)
+        expect(quiz_with_questions[:data][:attributes][:questions][0][:possibleAnswers]).to be_an Array
+        expect(quiz_with_questions[:data][:attributes][:questions][0][:possibleAnswers].first).to be_a String
+      end
+    end
+    context 'sad path' do
+      it 'errors out when a question is missing question text' do
+        quiz = create(:quiz)
 
+        question_params[:questions].first.delete(:questionText)
+
+        patch "/api/v1/quizzes/#{quiz.id}", headers: headers, params: question_params.to_json
+
+        expect(response.status).to eq(401)
+
+        error = JSON.parse(response.body, symbolize_names: true)
+
+        expect(error[:message]).to include("question text can't be blank")
+      end
+    end
   it 'gets all quizzes' do
     create_list(:quiz, 10)
 
@@ -139,9 +169,9 @@ describe 'Quizzes API' do
   it 'sends an error code if quiz does not exist' do
     get "/api/v1/quizzes/10000"
 
-    error = (JSON.parse(response.body, symbolize_names: true))[:errors][:details]
+    error = (JSON.parse(response.body, symbolize_names: true))[:message]
 
     expect(response.status).to eq(404)
-    expect(error).to eq("This quiz does not exist.")
+    expect(error).to eq("Couldn't find Quiz with 'id'=10000")
   end
 end
