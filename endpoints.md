@@ -49,6 +49,7 @@ STATUS: 200
   "title": "Prices Quiz II",
   "grade": "12",
   "user_id": "1" (always 1 for now),
+  "quiz_type": "multi"
 }
 ```
 
@@ -66,6 +67,7 @@ STATUS: 201
      title: "Prices Quiz II",
      grade: 12,
      user_id: 1,
+     quiz_type: "multi"
      questions: []
               }
         }
@@ -74,12 +76,12 @@ STATUS: 201
 
 #### `PATCH /api/v1/quizzes/:quiz_id`
 
-Currently used to add questions to quiz. 
+Currently used to add questions to quiz.
 
 ##### Required Body Content:
 
 ```
-{ questions: 
+{ questions:
         [
       {
         "questionText": "what is 8 / 4",
@@ -102,7 +104,7 @@ Currently used to add questions to quiz.
                            ]
       }
       ]
-     
+
     }
 ```
 
@@ -111,7 +113,7 @@ Currently used to add questions to quiz.
 ```
 STATUS: 200
 {
-data: 
+data:
   {id: "99",
    type: "quiz",
    attributes: {
@@ -120,7 +122,7 @@ data:
      title: "Prices Quiz II",
      grade: 12,
      user_id: 1,
-     questions: 
+     questions:
       [
       {questionText: "what is 8 / 4", questionType: "multi", correctAnswer: "2", possibleAnswers: ["4", "6", "2", "11"]},
       {questionText: "Demand never causes inflation", questionType: "TF", correctAnswer: "False", possibleAnswers: ['True', 'False']}
@@ -139,7 +141,7 @@ STATUS: 200
 {
   id: '1',
   user_id: '1' (always 1 for now)
-  type: 'multi',
+  quiz_type: 'multi',
   subject: 'Math',
   topic: 'division',
   title: 'Division II',
