@@ -1,5 +1,4 @@
-class MessageSerializer
-  include JSONAPI::Serializer
+class MessageSerializer < ActiveModel::Serializer
   attributes :id,
              :conversation_id,
              :text,
