@@ -17,6 +17,6 @@ class Api::V1::LiveQuizzesController < ApplicationController
 private
   
   def live_quiz_params
-    params.require(:live_quiz).permit(:title)
+    params.require(:live_quiz).permit(:subject, :topic, :title, :grade, :user_id, :quiz_type)
   end
 end

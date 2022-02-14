@@ -14,6 +14,6 @@ class Api::V1::LiveQuestionsController < ApplicationController
   private
   
   def live_question_params
-    params.require(:live_question).permit(:text, :live_quiz_id)
+    params.require(:live_question).permit(:question_text, :question_type, :correct_answer, :live_quiz_id)
   end
 end
