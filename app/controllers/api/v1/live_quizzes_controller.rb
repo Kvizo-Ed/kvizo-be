@@ -9,7 +9,7 @@ class Api::V1::LiveQuizzesController < ApplicationController
     if live_quiz.save
       serialized_data = ActiveModelSerializers::Adapter::Json.new(
         LiveQuizSerializer.new(live_quiz)).serializable_hash
-      ActionCable.server.broadcast 'live_quizs_channel', serialized_data
+      ActionCable.server.broadcast 'live_quizzes_channel', serialized_data
       head :ok
     end
   end
