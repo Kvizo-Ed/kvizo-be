@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :live_question do
     text { "MyString" }
-    conversation { nil }
+    live_quiz { nil }
   end
 end
