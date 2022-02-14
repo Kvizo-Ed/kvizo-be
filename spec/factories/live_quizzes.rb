@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :conversation do
+  factory :live_quiz do
     title { "MyString" }
   end
 end

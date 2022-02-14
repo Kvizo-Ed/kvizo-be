@@ -10,17 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_14_163832) do
+ActiveRecord::Schema.define(version: 2022_02_14_170608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "live_questions", force: :cascade do |t|
     t.string "text"
-    t.bigint "conversation_id"
+    t.bigint "live_quiz_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["conversation_id"], name: "index_live_questions_on_conversation_id"
+    t.index ["live_quiz_id"], name: "index_live_questions_on_live_quiz_id"
   end
 
   create_table "live_quizzes", force: :cascade do |t|
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2022_02_14_163832) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "live_questions", "live_quizzes", column: "conversation_id"
+  add_foreign_key "live_questions", "live_quizzes"
   add_foreign_key "possible_answers", "questions"
   add_foreign_key "questions", "quizzes"
   add_foreign_key "quizzes", "users"

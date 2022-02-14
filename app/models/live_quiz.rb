@@ -1,3 +1,3 @@
 class LiveQuiz < ApplicationRecord
-  has_many :messages
+  has_many :live_questions
 end
