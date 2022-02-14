@@ -1,7 +1,7 @@
 class LiveQuestionsChannel < ApplicationCable::Channel
   def subscribed
-    conversation = LiveQuizzes.find(params[:conversation])
-    stream_for conversation
+    live_quiz = LiveQuizzes.find(params[:live_quiz])
+    stream_for live_quiz
   end
 
   def unsubscribed
