@@ -10,16 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_14_170608) do
+ActiveRecord::Schema.define(version: 2022_02_14_194221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "live_questions", force: :cascade do |t|
-    t.string "text"
+    t.string "question_text"
     t.bigint "live_quiz_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "correct_answer"
+    t.string "question_type"
     t.index ["live_quiz_id"], name: "index_live_questions_on_live_quiz_id"
   end
 
@@ -27,6 +29,12 @@ ActiveRecord::Schema.define(version: 2022_02_14_170608) do
     t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "subject"
+    t.string "topic"
+    t.string "quiz_type"
+    t.integer "grade"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_live_quizzes_on_user_id"
   end
 
   create_table "possible_answers", force: :cascade do |t|
