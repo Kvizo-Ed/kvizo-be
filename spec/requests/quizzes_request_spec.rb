@@ -88,7 +88,7 @@ describe 'Quizzes API' do
         expect(response.status).to eq(201)
 
         quiz_with_questions = JSON.parse(response.body, symbolize_names: true)
-        require 'pry'; binding.pry
+
         expect(quiz_with_questions).to have_key(:data)
         expect(quiz_with_questions[:data]).to have_key(:id)
         expect(quiz_with_questions[:data][:id]).to be_a String
