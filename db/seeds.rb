@@ -6,5 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 user = User.create
 user.quizzes.create!(subject: "Math", topic: "Algebra", title: "Multiplication", grade: 5, quiz_type: "multi")
+
