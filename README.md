@@ -1,5 +1,7 @@
 [![Kvizo-Ed-img](https://img.shields.io/badge/KvizoEd-ff69b4.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAaQAAAGkAQMAAABEgsN2AAAABlBMVEXSVJvw8PBBhms0AAAAk0lEQVR4nO3LywmAMABEwYAFWJKtWWpK8OhJPcUPMSiCiGTedXfC/KAhUBRFURR1rWK4X0dRFEVRFEVRFEVRv1NZU/o0pzNFURRFURRFURRFURRFURRFURRFUVQ9KqZTV1SHS0HlURRFURRFURRFUdRbai2dx2zZ1FpfVO3+RlEURVEURVEURVGfq5tRFEVRVEVqAQt/yMKEdYNrAAAAAElFTkSuQmCC)](https://kvizofe.herokuapp.com/)
 
+[![Kvizo](https://circleci.com/gh/Kvizo-Ed/kvizo-be.svg?style=svg)](https://app.circleci.com/pipelines/github/Kvizo-Ed/kvizo-be?)
+
 # Kvizo Backend
 
 ## Background and Description
@@ -60,4 +62,11 @@ This project utilizes Rails 5.2.6 and Ruby 2.7.2
 - [Nate Brown](https://github.com/yosoynatebrown)
 - [Anna Kummer](https://github.com/annamkummer)
 - [Edward Krupicka](https://github.com/edwardkrupicka)
+
+[![LinkedIn-img](https://img.shields.io/badge/LinkedIn-0077B5?style=flaste&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
+
+- [Lesley Sanders](https://www.linkedin.com/in/lesley-sanders/)
+- [Nate Brown](https://www.linkedin.com/in/nathanbrownco/)
+- [Anna Kummer](https://www.linkedin.com/in/anna-m-kummer/)
+- [Edward Krupicka](https://www.linkedin.com/in/edwardkrupicka/)
 
