@@ -125,6 +125,7 @@ GEM
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
+    redis (4.6.0)
     rspec-core (3.10.2)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.2)
@@ -188,6 +189,7 @@ DEPENDENCIES
   puma (~> 3.11)
   rack-cors
   rails (~> 5.2.6)
+  redis (~> 4.0)
   rspec-rails
   rspec_junit_formatter
   shoulda-matchers (~> 3.1)
