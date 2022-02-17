@@ -10,6 +10,7 @@ class QuizSerializer
   attribute :questions do |quiz|
     quiz.questions.map do |question|
       {
+        questionId: question.id,
       questionText: question.question_text,
       questionType: question.question_type,
       correctAnswer: question.correct_answer,
