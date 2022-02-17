@@ -184,3 +184,22 @@ STATUS: 200
   }
 }
 ```
+
+#### `POST /api/v1/questions`
+- Used to broadcast questions to users via websockets.
+##### Required Body Content:
+
+```
+{
+  "questionID": "1"
+}
+```
+
+#### RESPONSE
+
+```
+STATUS: 201
+{
+"question": "question sent!"
+}
+```
