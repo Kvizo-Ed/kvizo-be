@@ -61,8 +61,6 @@ GEM
     faker (2.19.0)
       i18n (>= 1.6, < 2)
     ffi (1.15.5)
-    figaro (1.2.0)
-      thor (>= 0.14.0, < 2)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.9.1)
@@ -184,7 +182,6 @@ DEPENDENCIES
   byebug
   factory_bot_rails (~> 4.0)
   faker
-  figaro
   jsonapi-serializer
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
