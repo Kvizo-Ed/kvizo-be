@@ -80,7 +80,7 @@ Rails.application.configure do
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end
   config.web_socket_server_url = "wss://kvizo-be.herokuapp.com/cable" 
-  config.action_cable.allowed_request_origins = ['https://kvizofe.herokuapp.com/', 'http://kvizofe.herokuapp.com/']
+  config.action_cable.allowed_request_origins = ['kvizofe.herokuapp.com']
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
