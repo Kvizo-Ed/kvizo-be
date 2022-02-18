@@ -14,7 +14,7 @@ class QuizSerializer
       questionText: question.question_text,
       questionType: question.question_type,
       correctAnswer: question.correct_answer,
-      possibleAnswers: question.possible_answers.map do |answer|
+    possibleAnswers: question.possible_answers.map do |answer|
         answer.text
       end
       }
