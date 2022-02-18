@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: ENV['REDIS_URI']
+  url: redis://redistogo:d91d6fed1e418352a25566684f41a1eb@pike.redistogo.com:11448/
   channel_prefix: kvizo_be_production
